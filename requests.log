@@ -128,3 +128,7 @@
 [02/01/2026, 02:58:08] ::1 POST /api/users
 [02/01/2026, 02:58:08] ::1 POST /api/users/test-email
 [02/01/2026, 02:58:54] ::1 GET /api/weather/search?city=omsk
+[02/01/2026, 03:28:26] ::1 GET /
+[02/01/2026, 03:28:27] ::1 GET /styles.css
+[02/01/2026, 03:28:27] ::1 GET /app.js
+[02/01/2026, 03:28:27] ::1 GET /api/weather
