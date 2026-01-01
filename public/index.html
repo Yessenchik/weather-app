@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+<main class="container">
+    <h1>Weather App</h1>
+
+    <section class="topGrid">
+        <!-- Search -->
+        <section class="card">
+            <h2>Search</h2>
+
+            <form id="searchForm" class="row">
+                <input id="searchInput" placeholder="Type city name..." required />
+                <button type="submit" class="iconBtn" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <p id="errorBox" class="error"></p>
+
+            <div id="resultBox" class="result hidden">
+                <button id="addBtn" type="button" class="iconBtn starBtn" title="Toggle favorite">
+                    <i id="starIcon" class="fa-regular fa-star"></i>
+                </button>
+
+                <div id="weatherBox"></div>
+            </div>
+        </section>
+
+        <!-- Favorites -->
+        <section class="card">
+            <div class="row rowSpace">
+                <h2>Favorites</h2>
+                <button id="reloadFavBtn" type="button" class="iconBtn" title="Reload favorites">
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+            </div>
+
+            <ul id="favoritesList" class="list"></ul>
+        </section>
+    </section>
+
+    <!-- Email scheduling -->
+    <section class="card">
+        <div class="row rowSpace">
+            <h2>Email scheduling</h2>
+
+            <!-- optional: send test email immediately (manual) -->
+            <button id="testEmailBtn" type="button" class="iconBtn" title="Send test email now">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+
+        <form id="userForm" class="row wrap">
+            <input id="emailInput" type="email" placeholder="Email (e.g. you@gmail.com)" required />
+            <input id="cityEmailInput" placeholder="City for emails (e.g. Almaty)" required />
+
+            <!-- day + hour + minute (future only) -->
+            <input id="scheduleAt" type="datetime-local" />
+
+            <button type="submit" class="iconBtn" title="Save schedule">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+        </form>
+
+        <p class="hint">
+            If you leave date/time empty -> Save will send immediately.<br/>
+            If you choose a future date/time -> the server will send at that time (one-time).
+        </p>
+
+        <p id="userMsg" class="hint"></p>
+    </section>
+
+    <!-- Map -->
+    <section class="card">
+        <h2>Map</h2>
+        <div id="map"></div>
+    </section>
+</main>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
